@@ -1,0 +1,56 @@
+1- This code defines a function num_squares(n) to determine the fewest perfect square numbers required to sum up to a
+given positive integer n. It starts by generating a list of perfect squares up to the square root of n.
+Then, it initiates a queue with the initial number n and steps set to 0. Utilizing a breadth-first search approach,
+ it explores all possible combinations of perfect squares subtracted from the current number,
+ updating the queue with the new numbers and their corresponding steps. If a combination equals 0,
+ indicating the target sum is achieved, it returns the number of steps taken.
+ If no combination results in the target sum, it returns -1.
+
+ 2- There is a mistake in the output. It should be 11 not 6. The shortestPath function calculates the shortest path
+ length between a given start and destination point in a maze represented as a 2D grid.
+  I utilizes breadth-first search (BFS) algorithm.
+  The function first checks if the start or destination point is invalid (i.e., it's a blocked cell in the maze).
+  If so, it returns -1 indicating there's no valid path.
+  Then, it initializes a queue with the start position and distance set to 0.
+  It iterates through the queue until it's empty, dequeuing positions and their corresponding distances.
+  For each position, it explores all possible directions (down, up, right, left),
+  checks if the new position is valid (within the maze boundaries and not blocked),
+  and if so, adds it to the queue with an incremented distance. If the destination is reached, it returns the distance.
+  If no valid path is found, it returns -1.
+
+  3- for this I used radix_sort(arr): This function implements the radix sort algorithm to sort a list of strings (arr).
+   It first finds the maximum length among all strings in the list. Then, it iterates from the last character position
+   to the first character position. Then I used the exist(board, word): This function checks whether a given word can
+    be formed by concatenating characters from adjacent cells on a 2D board. It utilizes depth-first search (DFS) to
+    explore all possible paths on the board. Before starting the search, it sorts the characters of the word
+    using radix_sort. Then, it iterates over each cell in the board and performs DFS from that cell,
+    attempting to form the given word. If a valid path is found, it returns True; otherwise, it returns False.
+
+ 4- In the tropical_sort function:
+It first determines the length of the input list arr.
+Then, it iterates over each element of the list using two nested loops. For each element at index i,
+it compares it with all elements from index i+1 onwards.
+If it finds an element arr[j] that is smaller than arr[i], it swaps the positions of these elements.
+This process continues until the entire list is sorted in non-decreasing order.
+
+5- In the dijkstra function:
+It initializes a dictionary distances to store the shortest distance from the start node to each node in the graph.
+Initially, all distances are set to infinity except for the start node, which is set to 0.
+It initializes an empty set visited to keep track of visited nodes.
+It iterates until all nodes have been visited.
+In each iteration, it finds the node with the smallest distance that has not been visited yet.
+If there are multiple nodes with the same smallest distance, it chooses arbitrarily.
+It adds the selected node to the set of visited nodes.
+It updates the distances to neighbors of the current node if a shorter path is found.
+Finally, it returns the shortest distance from the start node to the end node.
+
+6- The modified dijkstra function now utilizes a priority queue to optimize the Dijkstra's algorithm implementation.
+Instead of sorting the priority queue every time, it maintains the queue in a sorted manner:
+
+The priority queue pq is initialized with tuples containing the distance and the node (0, start).
+Two helper functions, push and pop, are defined to add elements to and remove elements from the priority queue.
+The main loop runs until the priority queue is empty.In each iteration, it dequeues the node with the smallest distance.
+It then checks if the distance to the current node is greater than the known shortest distance.If so, it skips the node.
+It explores neighbors of the current node, calculates the distance to each neighbor,
+and updates the shortest distance if a shorter path is found.
+After the loop completes, it prints the shortest distances to each vertex.
